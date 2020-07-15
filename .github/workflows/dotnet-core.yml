@@ -28,5 +28,7 @@ jobs:
       uses: Azure/webapps-deploy@v1
       with:
         # Publish profile (*.publishsettings) file contents with Web Deploy secrets
-        publish-profile: *.PublishSettings
+        publish-profile: ${{ secrets.PUBLISH_PROFILE }}
+    
+        
         
