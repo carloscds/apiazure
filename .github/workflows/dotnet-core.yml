@@ -20,7 +20,9 @@ jobs:
     - name: Install dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --configuration Release --no-restore -o publish
+      run: dotnet build --configuration Release --no-restore 
+    - name: Build
+      run: dotnet publish --configuration Release --no-restore -o ./publish
     
     - name: Azure WebApp
       uses: Azure/webapps-deploy@v1
