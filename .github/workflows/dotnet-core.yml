@@ -20,15 +20,13 @@ jobs:
     - name: Install dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --configuration Release --no-restore
-    - name: Test
-      run: dotnet test --no-restore --verbosity normal
-      
+      run: dotnet build --configuration Release --no-restore -o publish
+    
     - name: Azure WebApp
       uses: Azure/webapps-deploy@v1
       with:
         # Publish profile (*.publishsettings) file contents with Web Deploy secrets
         publish-profile: ${{ secrets.PUBLISH_PROFILE }}
-    
+        package: './publish'     
         
         
